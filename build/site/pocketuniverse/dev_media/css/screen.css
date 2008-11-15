@@ -1,0 +1,183 @@
+/**
+ * $Id: screen.css [yyyy-mm-dd] $
+ *
+ *      This file defines the default style for XHTML pages conforming with the 
+ *      Trapeze Style Guide.
+ *
+ * @author [Developer Name]
+ * @copyright Copyright (c) 2008, Trapeze, All rights reserved.
+ *
+ * Basic Groups:   
+ *      Global  |   Structure   |   Text    |   Links
+ *      Images  |   Headers     |   Lists   |   Forms
+ *
+ * Project Specific Groups:
+ *      Image Text Box  | 
+ *
+ */
+
+/* @group Global */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #ffffff;
+
+    text-align: center;
+}
+
+/* @end */
+
+/* @group Structure */
+
+#Container {
+    position: relative;
+    width: 960px;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+
+    text-align: left;
+}
+
+    #Header {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 40px;
+    }
+
+    #ContentWrapper {
+        position: relative;
+        float: left;
+        clear: both;
+        width: 100%;
+        margin: 0px auto 20px auto;
+        text-align: left;
+    }
+
+        #RelatedContent {
+            position: relative;
+            float: left;
+            width: 274px;
+            margin: 0px;
+            padding: 0px 3px;
+            background-color: #f8f8f8;
+        }
+        
+        #ContentWrapper.one-column #RelatedContent {
+            display: none;
+        }
+
+
+        #Breadcrumbs {
+            position: relative;
+            float: left;
+            width: 924px;
+            padding: 0px 18px;
+            margin: 0px 0px 14px 0px;
+        }
+        #ContentWrapper.two-columns #Breadcrumbs {
+            width: 644px;
+        }
+
+
+        #MainContent {
+            position: relative;
+            float: left;
+            width: 924px;
+            margin: 0px;
+            padding: 0px 18px;
+            min-height: 500px;
+        }
+        
+        #ContentWrapper.two-columns #MainContent {
+            float: right;
+            width: 644px;
+        }
+
+
+    #Footer {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 40px;
+    }
+/* @end */
+
+/* @group Text */
+body, p, div, span, li, a, td, th, label {
+    color: #000000;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+p {
+    margin: 0px 0px 6px 0px;
+}
+/* @end */
+
+/* @group Links */
+a {
+    color: #e13a3e;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+/* @end */
+
+/* @group Images */
+/* @end */
+
+/* @group Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    color: #4b4b4b;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 16px;
+}
+/* @end */
+
+
+/* @group Lists */
+ul.inline-list,
+ul.inline-list li {
+    display: inline;
+}
+/* @end */
+
+/* @group Forms */
+/* @end */
+
+/*** BLOCK-SPECIFIC STRUCTURES ***/
+
+/* @group Image Text Box */
+.itbox {
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.itbox .itbox-image {
+    float: left;
+}
+
+.itbox .itbox-text {
+    float: right;
+}
+/* @end */
