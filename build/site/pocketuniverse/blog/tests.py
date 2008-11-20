@@ -2,6 +2,8 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase, client
 
 class HomePageTestCase(TestCase):
+    fixtures = ['test.json']
+
     def setUp(self):
         self.client = client.Client()
 
@@ -16,3 +18,9 @@ class HomePageTestCase(TestCase):
     def testBlogListInContext(self):
         response = self.client.get('/')
         self.assertTrue('blogpost_list' in response.context[0])
+
+    def testBlogPostInResponse(self):
+        response = self.client.get('/')
+        self.assertTrue(len(response.context[0]['blogpost_list']) > 0)
+        blog_post = response.context[0]['blogpost_list'][0]
+        self.assertContains(response, blog_post.title)

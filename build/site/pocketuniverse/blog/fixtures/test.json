@@ -1,0 +1,22 @@
+[
+    {
+        "pk": 2, 
+        "model": "blog.blogpost", 
+        "fields": {
+            "body": "This is the second test post.", 
+            "pub_date": "2008-11-20 00:12:39", 
+            "slug": "test-post-2", 
+            "title": "Test Post 2"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "blog.blogpost", 
+        "fields": {
+            "body": "This is the first test post.", 
+            "pub_date": "2008-11-20 00:12:20", 
+            "slug": "test-post-1", 
+            "title": "Test Post 1"
+        }
+    }
+]
