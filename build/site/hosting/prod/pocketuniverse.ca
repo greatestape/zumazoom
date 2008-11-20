@@ -1,0 +1,17 @@
+<VirtualHost *>
+  ServerName  pocketuniverse.ca
+  ServerAdmin sam@pocketuniverse.ca
+  
+  DocumentRoot /home/sam/projects/pocketuniverse/build/site
+
+  WSGIScriptAlias / "/home/sam/projects/pocketuniverse/build/site/hosting/prod/pocketuniverse.wsgi"
+
+  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D" combined
+
+  ErrorLog "|/usr/bin/cronolog /home/sam/projects/pocketuniverse/build/site/hosting/prod/log/%Y/error_%Y%m%d.log --symlink=/home/sam/projects/pocketuniverse/build/site/hosting/prod/log/error.log"
+
+  LogLevel warn
+
+  CustomLog  "|/usr/bin/cronolog --symlink=/home/sam/projects/pocketuniverse/build/site/hosting/prod/log/current.log -P /home/sam/projects/pocketuniverse/build/site/hosting/prod/log/previous.log /home/sam/projects/pocketuniverse/build/site/hosting/prod/log/%Y/access_%Y%m%d.log " combined
+
+</VirtualHost>
