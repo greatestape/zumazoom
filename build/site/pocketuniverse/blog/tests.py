@@ -8,3 +8,7 @@ class HomePageTestCase(TestCase):
     def testHomePageLoads(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+
+    def testBlogHomeTemplateUsed(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'blog/home.html')
