@@ -57,6 +57,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'django_extensions',
+
+    'blog',
 )
 
 # import local settings overriding the defaults
