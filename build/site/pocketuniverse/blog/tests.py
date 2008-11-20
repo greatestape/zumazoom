@@ -12,3 +12,7 @@ class HomePageTestCase(TestCase):
     def testBlogHomeTemplateUsed(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'blog/home.html')
+
+    def testBlogListInContext(self):
+        response = self.client.get('/')
+        self.assertTrue('blogpost_list' in response.context[0])
