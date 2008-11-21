@@ -114,7 +114,7 @@ body {
             padding-right: 20px;
         }
 
-        .blog-post p {
+        .blog-post p, .blog-post pre {
             padding-bottom: 20px;
             padding-right: 20px;
         }
