@@ -70,7 +70,6 @@ body {
 
         #MainContent {
             position: relative;
-            width: 924px;
             margin: 0px;
             padding: 0px 18px;
             min-height: 500px;
@@ -106,6 +105,7 @@ body {
 
         .blog-post h2, .blog-post p, .blog-post pre {
             margin-left: 260px;
+            margin-right: 100px;
         }
 
         .blog-post h2 {
@@ -117,6 +117,10 @@ body {
         .blog-post p, .blog-post pre {
             padding-bottom: 20px;
             padding-right: 20px;
+        }
+
+        .blog-post pre {
+            font-family: Monaco, Courier, monospace;
         }
 
         #ContentWrapper.two-columns #MainContent {
