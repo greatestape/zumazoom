@@ -119,7 +119,7 @@ body {
             padding-right: 20px;
         }
 
-        .blog-post pre {
+        .blog-post pre, blog-post code {
             font-family: Monaco, Courier, monospace;
         }
 
