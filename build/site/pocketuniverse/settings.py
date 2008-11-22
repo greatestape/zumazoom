@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'django_extensions',
 
     'blog',
+    'pygmented_markdown',
 )
 
 # import local settings overriding the defaults

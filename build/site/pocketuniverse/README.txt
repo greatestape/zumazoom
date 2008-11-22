@@ -1,1 +1,7 @@
-Enter important project information here, such as dependencies.
+The Pocketuniverse Blog
+=======================
+
+Dependencies
+------------
+- Python Imaging Library
+- Pygments
