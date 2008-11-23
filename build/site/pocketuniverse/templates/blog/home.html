@@ -12,7 +12,7 @@
             <p class="month">{{ blogpost.pub_date|date:"M" }}</p>
             <p class="day">{{ blogpost.pub_date|date:"j" }}</p>
         </div>
-        <h2>{{ blogpost.title }}</h2>
+        <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
         {{ blogpost.body|markdown }}
     </div>
     {% endfor %}

@@ -38,4 +38,8 @@ class PostDetailTestCase(TestCase):
     def testDetailPageLoads(self):
         response = self.client.get(self.post.get_absolute_url())
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'blog/post_detail.html')
+        self.assertTemplateUsed(response, 'blog/blogpost_detail.html')
+
+    def testPostTitleInResponse(self):
+        response = self.client.get(self.post.get_absolute_url())
+        self.assertContains(response, self.post.title)

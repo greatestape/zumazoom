@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load pygmented_markdown %}
+
+{% block title %}{{ block.super }} - {{ post.title|markdown|striptags }}{% endblock %}
+
+{% block column_class %}one-column{% endblock %}
+
+{% block main_content %}
+<div class="blog-post blue">
+    <div class="date">
+        <p class="month">{{ blogpost.pub_date|date:"M" }}</p>
+        <p class="day">{{ blogpost.pub_date|date:"j" }}</p>
+    </div>
+    <h2>{{ blogpost.title }}</h2>
+    {{ blogpost.body|markdown }}
+</div>
+{% endblock %}

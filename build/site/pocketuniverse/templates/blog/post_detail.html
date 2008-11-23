@@ -1,8 +1,0 @@
-{% extends "base.html" %}
-
-{% load pygmented_markdown %}
-
-{% block title %}{{ block.super }} - {{ post.title|markdown|striptags }}{% endblock %}
-
-{% block main_content %}
-{% endblock %}

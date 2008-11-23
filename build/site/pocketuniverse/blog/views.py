@@ -1,4 +1,4 @@
-from django.views.generic import simple
+from django.views.generic import simple, date_based
 
 from blog.models import BlogPost
 
@@ -9,4 +9,13 @@ def home(request):
 
 
 def post_detail(request, year, month, day, slug):
-    return simple.direct_to_template(request, 'blog/post_detail.html')
+    return date_based.object_detail(
+        request,
+        year=year,
+        month=month, month_format="%B",
+        day=day,
+        slug=slug, slug_field='slug',
+        date_field='pub_date',
+        queryset=BlogPost.objects.all(),
+        template_object_name='blogpost'
+        )

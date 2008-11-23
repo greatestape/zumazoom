@@ -47,6 +47,10 @@ body {
         padding-bottom: 40px;
     }
 
+    #Header h2 {
+        font-size: 16px;
+    }
+
     #SiteTitle, #SiteSubTitle {
         margin-left: 340px;        
     }
@@ -100,6 +104,16 @@ body {
             background-image: url("../images/stripe-blue.png");
         }
 
+        #MainContent .blog-post a {
+            color: #4C4C4C;
+            text-decoration: none;
+        }
+
+        #MainContent .blog-post a:hover,
+        #MainContent .blog-post a:active {
+            text-decoration: underline;
+        }
+
         #MainContent .blog-post .date {
             float: left;
             margin-top: 10px;
@@ -123,6 +137,7 @@ body {
         }
 
         #MainContent .blog-post h2 {
+            font-size: 18pt;
             padding-top: 20px;
             padding-bottom: 20px;
             padding-right: 20px;
@@ -152,7 +167,7 @@ body {
 /* @end */
 
 /* @group Text */
-body, p, div, span, li, a, td, th, label {
+body, p, div, span, li, td, th, label {
     font-size: 14px;
     line-height: 20px;
 }
@@ -190,9 +205,6 @@ h2 {
     font-size: 18px;
 }
 
-h2 {
-    font-size: 16px;
-}
 /* @end */
 
 
