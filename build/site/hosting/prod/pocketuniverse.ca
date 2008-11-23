@@ -4,6 +4,20 @@
   
   DocumentRoot /home/sam/projects/pocketuniverse/build/site
 
+  Alias /media/ /home/sam/projects/pocketuniverse/build/site/pocketuniverse/media/
+
+  <Directory /var/www/media>
+    Order deny,allow
+    Allow from all
+  </Directory>
+
+  Alias /munin/ /var/www/munin/
+
+  <Directory /var/www/munin>
+    Order deny,allow
+    Allow from all
+  </Directory>
+
   WSGIScriptAlias / "/home/sam/projects/pocketuniverse/build/site/hosting/prod/pocketuniverse.wsgi"
 
   LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D" combined
