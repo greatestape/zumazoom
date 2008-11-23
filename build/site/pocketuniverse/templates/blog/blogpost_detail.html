@@ -2,7 +2,7 @@
 
 {% load pygmented_markdown %}
 
-{% block title %}{{ block.super }} - {{ post.title|markdown|striptags }}{% endblock %}
+{% block page_title %}{{ block.super }} - {{ blogpost.title|markdown|striptags }}{% endblock %}
 
 {% block column_class %}one-column{% endblock %}
 

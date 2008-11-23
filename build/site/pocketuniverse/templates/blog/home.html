@@ -2,9 +2,14 @@
 
 {% load pygmented_markdown %}
 
+{% block syndication %}
+<link rel="alternate" type="application/atom+xml" href="{% url feeds url="latest" %}" title="Latest Blog Posts" />
+{% endblock %}
+
 {% block body_class %}home-page{% endblock %}
 
 {% block column_class %}one-column{% endblock %}
+
 {% block main_content %}
     {% for blogpost in blogpost_list %}
     <div class="blog-post blue">
