@@ -76,7 +76,20 @@ body {
             min-height: 500px;
         }
 
-        .blog-post {
+        #MainContent h1, #MainContent  p, #MainContent div {
+            margin-left: 324px;
+            margin-right: 60px;
+        }
+
+        #MainContent div div {
+            margin: 0px;
+        }
+
+        #MainContent h1 {
+            margin-bottom: 10px;
+        }
+
+        #MainContent .blog-post {
             margin: 10px 60px 60px 64px;
             color: #4C4C4C;
             background-color: white;
@@ -87,7 +100,7 @@ body {
             background-image: url("../images/stripe-blue.png");
         }
 
-        .blog-post .date {
+        #MainContent .blog-post .date {
             float: left;
             margin-top: 10px;
             margin-left: 20px;
@@ -95,27 +108,27 @@ body {
             width: 60px;
         }
 
-        .blog-post .date p {
+        #MainContent .blog-post .date p {
             margin: 0px;
             padding: 5px 0px;
         }
-        
-        .blog-post .date .day {
+
+        #MainContent .blog-post .date .day {
             font-size: 20pt;
         }
 
-        .blog-post h2, .blog-post p, .blog-post pre {
+        #MainContent .blog-post h2, #MainContent .blog-post p, #MainContent .blog-post pre {
             margin-left: 260px;
             margin-right: 100px;
         }
 
-        .blog-post h2 {
+        #MainContent .blog-post h2 {
             padding-top: 20px;
             padding-bottom: 20px;
             padding-right: 20px;
         }
 
-        .blog-post p, .blog-post pre {
+        #MainContent .blog-post p, #MainContent .blog-post pre {
             padding-bottom: 20px;
             padding-right: 20px;
         }
