@@ -26,5 +26,6 @@ class BlogPost(models.Model):
         return ('blog_post_detail', (), {
             'year': self.pub_date.year,
             'month': self.pub_date.strftime('%B').lower(),
+            'day': self.pub_date.day,
             'slug': self.slug,
             })

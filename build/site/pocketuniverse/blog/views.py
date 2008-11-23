@@ -8,5 +8,5 @@ def home(request):
                                      {'blogpost_list': blogpost_list})
 
 
-def post_detail(request, year, month, slug):
+def post_detail(request, year, month, day, slug):
     return simple.direct_to_template(request, 'blog/post_detail.html')
