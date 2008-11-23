@@ -20,3 +20,11 @@ class BlogPost(models.Model):
                     'title': self.title,
                     'pub_date': self.pub_date.strftime('%B %d, %Y')
                     }
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('blog_post_detail', (), {
+            'year': self.pub_date.year,
+            'month': self.pub_date.strftime('%B').lower(),
+            'slug': self.slug,
+            })

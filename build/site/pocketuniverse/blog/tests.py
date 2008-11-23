@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase, client
 
+from blog.models import BlogPost
+
 class HomePageTestCase(TestCase):
     fixtures = ['test.json']
 
@@ -24,3 +26,16 @@ class HomePageTestCase(TestCase):
         self.assertTrue(len(response.context[0]['blogpost_list']) > 0)
         blog_post = response.context[0]['blogpost_list'][0]
         self.assertContains(response, blog_post.title)
+
+
+class PostDetailTestCase(TestCase):
+    fixtures = ['test.json']
+
+    def setUp(self):
+        self.client = client.Client()
+        self.post = BlogPost.objects.get(pk=1)
+
+    def testDetailPageLoads(self):
+        response = self.client.get(self.post.get_absolute_url())
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/post_detail.html')
