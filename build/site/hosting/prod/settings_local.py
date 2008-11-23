@@ -20,9 +20,7 @@ DATABASE_PASSWORD = 'kloul7ad7yur'
 
 TIME_ZONE = 'Canada/Eastern'
 
-ROOT_URLCONF = 'dev_urls'
-
-INTERNAL_IPS = ('127.0.0.1', )
+ROOT_URLCONF = 'pocketuniverse.urls'
 
 MEDIA_URL = '/media/'
 

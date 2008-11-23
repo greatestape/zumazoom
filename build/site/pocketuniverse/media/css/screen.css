@@ -24,6 +24,7 @@ body {
     background-color: #4C4C4C;
     background-image: url("../images/striped-concrete-back.jpg");
     background-repeat: repeat-y;
+    background-attachment: fixed;
     text-align: center;
     color: white;
     font-family: Helvetica, Arial, sans-serif;
