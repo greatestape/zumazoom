@@ -1,5 +1,6 @@
 <VirtualHost *>
   ServerName  pocketuniverse.ca
+  ServerAlias www.pocketuniverse.ca
   ServerAdmin sam@pocketuniverse.ca
   
   DocumentRoot /home/sam/projects/pocketuniverse/build/site
