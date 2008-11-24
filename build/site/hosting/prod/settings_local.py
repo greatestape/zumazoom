@@ -25,3 +25,5 @@ ROOT_URLCONF = 'pocketuniverse.urls'
 MEDIA_URL = '/media/'
 
 ADMIN_MEDIA_PREFIX = MEDIA_URL + 'admin/'
+
+PREPEND_WWW = True
