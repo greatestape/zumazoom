@@ -3,6 +3,12 @@
   ServerAlias www.pocketuniverse.ca
   ServerAdmin sam@pocketuniverse.ca
   
+  RewriteEngine on
+
+  RewriteCond %{HTTP_HOST}   !^www\.pocketuniverse\.ca [NC]
+  RewriteCond %{HTTP_HOST}   !^$
+  RewriteRule ^/(.*)         http://www.pocketuniverse.ca/$1 [L,R]
+
   DocumentRoot /home/sam/projects/pocketuniverse/build/site
 
   Alias /media/ /home/sam/projects/pocketuniverse/build/site/pocketuniverse/media/
