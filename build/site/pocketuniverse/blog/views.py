@@ -3,9 +3,12 @@ from django.views.generic import simple, date_based
 from blog.models import BlogPost
 
 def home(request):
-    blogpost_list = BlogPost.objects.all()
-    return simple.direct_to_template(request, 'blog/home.html',
-                                     {'blogpost_list': blogpost_list})
+    return date_based.archive_index(
+        request,
+        BlogPost.objects.all(),
+        date_field='pub_date',
+        template_name='blog/home.html',
+        template_object_name='latest_blogposts')
 
 
 def post_detail(request, year, month, day, slug):

@@ -19,12 +19,12 @@ class HomePageTestCase(TestCase):
 
     def testBlogListInContext(self):
         response = self.client.get('/')
-        self.assertTrue('blogpost_list' in response.context[0])
+        self.assertTrue('latest_blogposts' in response.context[0])
 
     def testBlogPostInResponse(self):
         response = self.client.get('/')
-        self.assertTrue(len(response.context[0]['blogpost_list']) > 0)
-        blog_post = response.context[0]['blogpost_list'][0]
+        self.assertTrue(len(response.context[0]['latest_blogposts']) > 0)
+        blog_post = response.context[0]['latest_blogposts'][0]
         self.assertContains(response, blog_post.title)
 
 

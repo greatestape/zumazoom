@@ -11,7 +11,7 @@
 {% block column_class %}one-column{% endblock %}
 
 {% block main_content %}
-    {% for blogpost in blogpost_list %}
+    {% for blogpost in latest_blogposts %}
     <div class="blog-post blue">
         <div class="date">
             <p class="month">{{ blogpost.pub_date|date:"M" }}</p>
