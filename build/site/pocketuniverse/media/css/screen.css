@@ -69,6 +69,11 @@ ol {
         margin-top: 15px;
     }
 
+    #BadgeBar {
+        float: right;
+        margin-right: 60px;
+    }
+
     #ContentWrapper {
         position: relative;
         clear: both;

@@ -57,7 +57,7 @@
 <body class="{% block body_class %}{% endblock %}">
     <div id="Container">
         <div id="Header">
-            {# <div id="Logo"><img src="/media/images/logo.png" alt="[Company Name]" /></div> #}
+            <a href="http://www.djangoproject.com"><div id="BadgeBar"><img src="{{ MEDIA_URL }}images/pony_power.gif" alt="Powered By Magical Django Ponies" /></a></div>
             <h1 id="SiteTitle">pocketuniverse</h1>
             <h2 id="SiteSubTitle">Sam Bull's Blog</h2>
             {% block header %}{% endblock %}
