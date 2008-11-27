@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-{% load pygmented_markdown %}
 
 {% block syndication %}
 <link rel="alternate" type="application/atom+xml" href="{% url feeds url="latest" %}" title="Latest Blog Posts" />
@@ -12,13 +11,6 @@
 
 {% block main_content %}
     {% for blogpost in latest_blogposts %}
-    <div class="blog-post blue">
-        <div class="date">
-            <p class="month">{{ blogpost.pub_date|date:"M" }}</p>
-            <p class="day">{{ blogpost.pub_date|date:"j" }}</p>
-        </div>
-        <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
-        {{ blogpost.body|markdown }}
-    </div>
+        {% include "blog/_blogpost_list_item.html" %}
     {% endfor %}
 {% endblock %}
