@@ -56,6 +56,27 @@ ol {
         font-size: 16px;
     }
 
+    #Header .nav-bar {
+        margin-top: 20px;
+        margin-left: 340px;
+        color: white;
+    }
+
+    #Header ul.nav-bar li {
+        padding-right: 8px;
+        float: left;
+    }
+
+    #Header .nav-bar a,
+    #Header .nav-bar a:hover,
+    #Header .nav-bar a:active {
+        color: white;
+    }
+
+    #Header .nav-bar .active {
+        font-weight: bold;
+    }
+
     #SiteTitle, #SiteSubTitle {
         margin-left: 340px;        
     }

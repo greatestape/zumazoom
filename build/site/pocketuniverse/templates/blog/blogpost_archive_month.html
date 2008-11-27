@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load blog_archive %}
+
+{% block page_title %}{{ block.super }} - Blog Archive - {{ month|date:"F" }}{% endblock %}
+
+{% block body_class %}blog-archive{% endblock %}
+
+{% block column_class %}one-column{% endblock %}
+
+{% block header %}
+<ul class="nav-bar">
+    <li>Archive: </li>
+    {% if previous_month|has_posts_in_month %}
+        {% with previous_month|date:"F" as month_str %}
+    <li><a href="{% url blog_archive_month year=previous_month.year,month=month_str.lower %}">{{ month_str }} {{ previous_month.year }}</a></li>
+        {% endwith %}
+    {% endif %}
+    {% with month|date:"F" as month_str %}
+    <li><a class="active" href="{% url blog_archive_month year=month.year,month=month_str.lower %}">{{ month_str }} {{ month.year }}</a></li>
+    {% endwith %}
+    {% if next_month|has_posts_in_month %}
+        {% with next_month|date:"F" as month_str %}
+    <li><a href="{% url blog_archive_month year=next_month.year,month=month_str.lower %}">{{ month_str }} {{ next_month.year }}</a></li>
+        {% endwith %}
+    {% endif %}
+</ul>
+{% endblock %}
+
+{% block main_content %}
+    {% for blogpost in blogpost_list %}
+        {% include "blog/_blogpost_list_item.html" %}
+    {% endfor %}
+{% endblock %}

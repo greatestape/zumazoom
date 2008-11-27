@@ -22,3 +22,14 @@ def post_detail(request, year, month, day, slug):
         queryset=BlogPost.objects.all(),
         template_object_name='blogpost'
         )
+
+
+def archive_month(request, year, month):
+    return date_based.archive_month(
+        request,
+        year=year,
+        month=month, month_format="%B",
+        date_field='pub_date',
+        queryset=BlogPost.objects.all(),
+        template_object_name='blogpost'
+        )

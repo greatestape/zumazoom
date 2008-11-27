@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load blog_archive %}
 
 {% block syndication %}
 <link rel="alternate" type="application/atom+xml" href="{% url feeds url="latest" %}" title="Latest Blog Posts" />
@@ -8,6 +9,17 @@
 {% block body_class %}home-page{% endblock %}
 
 {% block column_class %}one-column{% endblock %}
+
+{% block header %}
+<ul class="nav-bar">
+    <li>Archive: </li>
+{% for month_date in date_list|months_with_content %}
+    {% with month_date|date:"F" as month_str %}
+        <li><a href="{% url blog_archive_month year=month_date.year,month=month_str.lower %}">{{ month_str }} {{ month_date.year }}</a></li>
+    {% endwith %}
+{% endfor %}
+</ul>
+{% endblock %}
 
 {% block main_content %}
     {% for blogpost in latest_blogposts %}
