@@ -198,12 +198,13 @@ p {
 
 /* @group Links */
 a {
-    color: #e13a3e;
+    color: white;
     text-decoration: none;
 }
 
 a:hover,
 a:active {
+    color: white;
     text-decoration: underline;
 }
 
