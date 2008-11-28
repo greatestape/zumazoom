@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'django_extensions',
+    'django_evolution',
 
     'blog',
     'pygmented_markdown',
