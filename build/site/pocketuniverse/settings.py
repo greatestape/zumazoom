@@ -35,6 +35,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -54,6 +55,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.comments',
     'django.contrib.contenttypes',
+    'django.contrib.flatpages',
     'django.contrib.humanize',
     'django.contrib.markup',
     'django.contrib.sessions',
@@ -63,6 +65,7 @@ INSTALLED_APPS = (
     'django_evolution',
 
     'blog',
+    'flatpage_fixtures',
     'pygmented_markdown',
 )
 

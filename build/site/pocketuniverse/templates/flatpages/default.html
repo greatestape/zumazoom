@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load markup %}
+
+{% block page_title %}{{ block.super }} - {{ flatpage.title }}{% endblock %}
+
+{% block column_class %}one-column{% endblock %}
+
+{% block main_content %}
+<h1>{{ flatpage.title }}</h1>
+{{ flatpage.content|markdown }}
+{% endblock %}
