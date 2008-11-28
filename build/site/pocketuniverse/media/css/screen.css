@@ -250,7 +250,7 @@ ol {
 /* @group Text */
 body, p, div, span, li, td, th, label {
     font-size: 14px;
-    /* line-height: 20px; */
+    line-height: 18px;
 }
 
 p {
