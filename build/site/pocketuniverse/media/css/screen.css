@@ -31,8 +31,13 @@ body {
 }
 
 ol {
+    padding-left: 20px;
     list-style-type: decimal;
-    list-style-position: inside;
+    list-style-position: outside;
+}
+
+ol li {
+    margin-bottom: 10px;
 }
 
 /* @end */
@@ -130,6 +135,7 @@ ol {
             color: #4C4C4C;
             background-color: white;
             background-repeat: repeat-y;
+            padding: 10px 0px;
         }
 
         .blue {
@@ -185,8 +191,9 @@ ol {
         #MainContent .blog-post ul,
         #MainContent .blog-post ol
         {
-            padding-bottom: 20px;
+            padding-bottom: 18px;
             padding-right: 20px;
+            margin-bottom: 0px;
         }
 
         .blog-post pre, blog-post code {
