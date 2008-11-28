@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load comments %}
+{% load humanize %}
 {% load pygmented_markdown %}
 
 {% block page_title %}{{ block.super }} - {{ blogpost.title|markdown|striptags }}{% endblock %}
@@ -8,4 +10,22 @@
 
 {% block main_content %}
 {% include "blog/_blogpost_list_item.html" %}
+{% get_comment_list for blogpost as comment_list  %}
+{% for comment in comment_list %}
+<div class="comment">
+    <a name="comments"></a>
+    {{ comment.comment|escape|linebreaks }}
+    &mdash;
+    {% if comment.url %}
+        <a href="{{ comment.url }}">{{ comment.name }}</a>
+    {% else %}
+        {{ comment.name }}
+    {% endif %}
+    ({{ comment.submit_date|naturalday:"F d, Y" }} at {{ comment.submit_date|time:"g:i a"}})
+</div>
+{% endfor %}
+<div class="comment-form">
+    <a name="comment_form"></a>
+    {% render_comment_form for blogpost %}
+</div>
 {% endblock %}

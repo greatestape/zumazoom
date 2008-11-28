@@ -116,7 +116,8 @@ ol {
             margin-right: 60px;
         }
 
-        #MainContent div div {
+        #MainContent div div,
+        #MainContent div h1 {
             margin: 0px;
         }
 
@@ -125,7 +126,7 @@ ol {
         }
 
         #MainContent .blog-post {
-            margin: 10px 60px 60px 64px;
+            margin: 60px 60px 10px 64px;
             color: #4C4C4C;
             background-color: white;
             background-repeat: repeat-y;
@@ -192,6 +193,46 @@ ol {
             font-family: Monaco, Courier, monospace;
         }
 
+        #MainContent .comment-form p,
+        #MainContent .comment p {
+            margin: 0px;
+        }
+
+        #MainContent .comment-form,
+        #MainContent .comment {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        #MainContent .comment {
+            margin-left: 304px;
+            background: white;
+            color: #4C4C4C;
+            padding: 20px;
+        }
+
+        #MainContent .comment a {
+            color: #4C4C4C;
+        }
+
+        #MainContent div .comment {
+            margin-left: 0px;
+        }
+
+        #MainContent .comment-form p {
+            margin-bottom: 10px;
+        }
+
+        #MainContent .comment-form label {
+            display: block;
+            float: left;
+            width: 10em;
+            clear: both;
+        }
+
+        #MainContent .comment-form input {
+        }
+
         #ContentWrapper.two-columns #MainContent {
             float: right;
             width: 644px;
@@ -221,6 +262,10 @@ p {
 a {
     color: white;
     text-decoration: none;
+}
+
+a.obvious {
+    text-decoration: underline;
 }
 
 a:hover,

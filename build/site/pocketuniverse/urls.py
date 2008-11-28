@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^$', 'blog.views.home'),
     (r'^archive/', include('blog.urls')),
 
+    (r'^comments/', include('django.contrib.comments.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)', admin.site.root),
 
