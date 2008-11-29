@@ -127,7 +127,10 @@ ul li {
             min-height: 500px;
         }
 
-        #MainContent h1, #MainContent  p, #MainContent div {
+        #MainContent h1,
+        #MainContent  p,
+        #MainContent div,
+        #MainContent ul {
             margin-left: 324px;
             margin-right: 60px;
         }
