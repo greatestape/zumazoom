@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 
-{% block page_title %}{{ block.super }} - Comment Posted{% endblock %}
+{% block title %}{{ block.super }} - Comment Posted{% endblock %}
 
-{% block column_class %}one-column{% endblock %}
-
-{% block main_content %}
+{% block content %}
 <h1>Comment Posted</h1>
 <p><a class="obvious" href="{{ comment.content_object.get_absolute_url }}">Return to blog post</a></p>
 {% endblock %}

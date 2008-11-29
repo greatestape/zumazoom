@@ -4,11 +4,9 @@
 {% load humanize %}
 {% load pygmented_markdown %}
 
-{% block page_title %}{{ block.super }} - Comment Preview{% endblock %}
+{% block title %}{{ block.super }} - Comment Preview{% endblock %}
 
-{% block column_class %}one-column{% endblock %}
-
-{% block main_content %}
+{% block content %}
 <div class="comment-form">
     {% load comments %}
     <form action="{% comment_form_target %}" method="POST">

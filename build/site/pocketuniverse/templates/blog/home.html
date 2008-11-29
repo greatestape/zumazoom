@@ -9,8 +9,6 @@
 
 {% block body_class %}home-page{% endblock %}
 
-{% block column_class %}one-column{% endblock %}
-
 {% block header %}
 <ul class="nav-bar">
     <li>Archive: </li>
@@ -22,7 +20,7 @@
 </ul>
 {% endblock %}
 
-{% block main_content %}
+{% block content %}
     {% for blogpost in latest_blogposts %}
         {% include "blog/_blogpost_list_item.html" %}
         {% get_comment_count for blogpost as comment_count %}

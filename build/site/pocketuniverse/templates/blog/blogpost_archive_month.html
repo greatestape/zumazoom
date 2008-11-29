@@ -3,11 +3,9 @@
 {% load comments %}
 {% load blog_archive %}
 
-{% block page_title %}{{ block.super }} - Blog Archive - {{ month|date:"F" }}{% endblock %}
+{% block title %}{{ block.super }} - Blog Archive - {{ month|date:"F" }}{% endblock %}
 
 {% block body_class %}blog-archive{% endblock %}
-
-{% block column_class %}one-column{% endblock %}
 
 {% block header %}
 <ul class="nav-bar">
@@ -28,7 +26,7 @@
 </ul>
 {% endblock %}
 
-{% block main_content %}
+{% block content %}
     {% for blogpost in blogpost_list %}
         {% include "blog/_blogpost_list_item.html" %}
         {% get_comment_count for blogpost as comment_count %}

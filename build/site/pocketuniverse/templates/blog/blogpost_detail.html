@@ -4,11 +4,9 @@
 {% load humanize %}
 {% load pygmented_markdown %}
 
-{% block page_title %}{{ block.super }} - {{ blogpost.title|markdown|striptags }}{% endblock %}
+{% block title %}{{ block.super }} - {{ blogpost.title|markdown|striptags }}{% endblock %}
 
-{% block column_class %}one-column{% endblock %}
-
-{% block main_content %}
+{% block content %}
 {% include "blog/_blogpost_list_item.html" %}
 {% get_comment_list for blogpost as comment_list  %}
 {% for comment in comment_list %}

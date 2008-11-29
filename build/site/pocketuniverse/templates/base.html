@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="verify-v1" content="Ta+rgwvsYjVedNU0yGz6fa9Ff0rvwgzYgD7g0iij9Hs=" />
-    <title>{% block page_title %}{% trans "pocketuniverse" %}{% endblock %}</title>
+    <title>{% block title %}{% trans "pocketuniverse" %}{% endblock %}</title>
 
     {# TODO: <link rel="shortcut icon" type="image/ico" href="{{ MEDIA_URL }}images/favicon.ico" /> #}
 
@@ -62,8 +62,8 @@
             <h2 id="SiteSubTitle"><a href="/about/" title="About">Sam Bull</a>'s Blog</h2>
             {% block header %}{% endblock %}
         </div>
-        <div id="ContentWrapper" class="{% block column_class %}two-columns{% endblock %}">
-            <div id="MainContent">{% block main_content %}{% endblock %}</div>
+        <div id="ContentWrapper" class="{% block column_class %}one-column{% endblock %}">
+            <div id="MainContent">{% block content %}{% endblock %}</div>
         </div>
         <div id="Footer">
         </div>
