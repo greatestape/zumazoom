@@ -156,8 +156,13 @@ ul li {
             background-image: url("../images/stripe-blue.png");
         }
 
-        #MainContent .blog-post a {
+        #MainContent .blog-post h2 a {
             color: #4C4C4C;
+            text-decoration: none;
+        }
+
+        #MainContent .blog-post a {
+            color: #E673A4;
             text-decoration: none;
         }
 
