@@ -40,6 +40,17 @@ ol li {
     margin-bottom: 10px;
 }
 
+ul {
+    padding-left: 20px;
+    list-style-type: disc;
+    list-style-position: outside;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+
 /* @end */
 
 /* @group Structure */
