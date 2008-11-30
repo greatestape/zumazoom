@@ -5,7 +5,7 @@ from blog.models import BlogPost
 
 class LatestPosts(Feed):
     title = "pocketuniverse.ca blog posts"
-    subtitle = "The latests posts to pocketuniverse.ca."
+    subtitle = "The latest posts to pocketuniverse.ca."
     link = "/"
     author_name = 'Sam Bull'
 
