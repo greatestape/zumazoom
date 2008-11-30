@@ -1,0 +1,21 @@
+{% spaceless %}
+
+{{ obj.comment|escape|linebreaks }}
+
+<p>– 
+    {% if obj.url %}
+        <a href="{{ obj.url }}">{{ obj.name }}</a>
+    {% else %}
+        {{ obj.name }}
+    {% endif %}
+    ({{ obj.submit_date|date:"F d, Y" }} at {{ obj.submit_date|time:"g:i a"}})
+</p>
+<p>
+    On {{ obj.content_type.name }}: 
+    {% if obj.content_object.get_absolute_url %}
+        <a href="{{ obj.content_object.get_absolute_url }}">{{ obj.content_object }}</a>
+    {% else %}
+        {{ obj.content_object }}
+    {% endif %}:
+</p>
+{% endspaceless %}

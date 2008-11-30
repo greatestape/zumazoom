@@ -1,3 +1,4 @@
+from django.contrib.comments.feeds import LatestCommentFeed
 from django.contrib.syndication.feeds import Feed
 from django.utils.feedgenerator import Atom1Feed
 
@@ -19,3 +20,14 @@ class LatestPosts(Feed):
 
     def item_pubdate(self, item):
         return item.pub_date
+
+
+class LatestCommentsAtomFeed(LatestCommentFeed):
+    title = 'pocketuniverse.ca comments'
+    subtitle = 'The latest comments posted to pocketuniverse.ca'
+    link = '/'
+
+    feed_type = Atom1Feed
+
+    def item_author_name(self, item):
+        return item.name

@@ -1,10 +1,11 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 
-from blog.feeds import LatestPosts
+from blog.feeds import LatestPosts, LatestCommentsAtomFeed
 
 feeds = {
     'latest': LatestPosts,
+    'comments': LatestCommentsAtomFeed,
 }
 
 admin.autodiscover()
