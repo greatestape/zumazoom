@@ -1,6 +1,7 @@
+from django.shortcuts import get_object_or_404
 from django.views.generic import simple, date_based
 
-from blog.models import BlogPost
+from blog.models import BlogPost, Category
 
 def home(request):
     return date_based.archive_index(
@@ -33,3 +34,12 @@ def archive_month(request, year, month):
         queryset=BlogPost.objects.all(),
         template_object_name='blogpost'
         )
+
+def category_detail(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    return date_based.archive_index(
+        request,
+        category.blogpost_set.all(),
+        date_field='pub_date',
+        template_name='blog/category_detail.html',
+        template_object_name='latest_blogposts')

@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase, client
 
-from blog.models import BlogPost
+from blog.models import BlogPost, Category
 
 class HomePageTestCase(TestCase):
     fixtures = ['test.json']
@@ -52,3 +52,17 @@ class PostDetailTestCase(TestCase):
     def testPostTitleInResponse(self):
         response = self.client.get(self.post.get_absolute_url())
         self.assertContains(response, self.post.title)
+
+
+class CategoryDetailTestCase(TestCase):
+    fixtures = ['categories_test.json']
+
+    def setUp(self):
+        self.client = client.Client()
+        self.category = Category.objects.all()[0]
+
+    def testCategoryDetailPageLoads(self):
+        response = self.client.get(reverse('blog_category_detail', None,
+                                           (), {'category_slug': self.category.slug}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/category_detail.html')

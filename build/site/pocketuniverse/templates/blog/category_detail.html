@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load comments %}
+{% load blog_archive %}
+
+{% block syndication %}
+<link rel="alternate" type="application/atom+xml" href="/feeds/categories/{{ category.slug }}/" title="Latest {{ category }} Blog Posts" />
+{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block header %}
+<ul class="nav-bar">
+    <li>Archive: </li>
+{% for month_date in date_list|months_with_content %}
+    {% with month_date|date:"F" as month_str %}
+        <li><a href="{% url blog_archive_month year=month_date.year,month=month_str.lower %}">{{ month_str }} {{ month_date.year }}</a></li>
+    {% endwith %}
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+    {% for blogpost in latest_blogposts %}
+        {% include "blog/_blogpost_list_item.html" %}
+        {% get_comment_count for blogpost as comment_count %}
+        <div class="post-meta">
+            {% if not comment_count %}
+            No comments
+            {% else %}
+            <a href="{{ blogpost.get_absolute_url }}#comments">{{ comment_count }} comment{{ comment_count|pluralize }}</a>
+            {% endif %}
+            &mdash;
+            <a href="{{ blogpost.get_absolute_url }}#comment_form">Post a comment</a>
+        </div>
+    {% endfor %}
+{% endblock %}

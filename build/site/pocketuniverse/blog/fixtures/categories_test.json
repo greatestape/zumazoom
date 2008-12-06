@@ -1,0 +1,41 @@
+[
+    {
+        "pk": 3, 
+        "model": "blog.blogpost", 
+        "fields": {
+            "body": "This is normal text and [this](/) is a link.\r\n\r\n[sourcecode:python]\r\ndef example_function():\r\n   \"\"\"This is some python\"\"\"\r\n   print \"I hope this works.\"\r\n[/sourcecode]\r\n1. item one  \r\n  with second line\r\n2. item two", 
+            "pub_date": "2008-11-22 01:44:04", 
+            "slug": "test-code-highlighting", 
+            "title": "Test of code highlighting"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "blog.blogpost", 
+        "fields": {
+            "body": "This is the second test post.", 
+            "pub_date": "2008-11-20 00:12:39", 
+            "slug": "test-post-2", 
+            "title": "Test Post 2"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "blog.blogpost", 
+        "fields": {
+            "body": "This is the first test post.", 
+            "pub_date": "2008-10-20 00:12:20", 
+            "slug": "test-post-1", 
+            "title": "Test Post 1"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "blog.category", 
+        "fields": {
+            "name": "Test Category", 
+            "weight": 0, 
+            "slug": "test-category"
+        }
+    }
+]
