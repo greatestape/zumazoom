@@ -23,9 +23,8 @@ class LatestPosts(Feed):
 
 
 class LatestCommentsAtomFeed(LatestCommentFeed):
-    title = 'pocketuniverse.ca comments'
-    subtitle = 'The latest comments posted to pocketuniverse.ca'
-    link = '/'
+    def subtitle(self):
+        return self.description()
 
     feed_type = Atom1Feed
 
