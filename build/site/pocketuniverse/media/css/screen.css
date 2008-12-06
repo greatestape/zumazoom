@@ -78,6 +78,10 @@ ul li {
         color: white;
     }
 
+    #Header .nav-bar {
+        list-style: none;
+    }
+
     #Header ul.nav-bar li {
         padding-right: 8px;
         float: left;
