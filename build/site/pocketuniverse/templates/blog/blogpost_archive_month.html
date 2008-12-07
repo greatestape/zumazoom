@@ -8,36 +8,15 @@
 {% block body_class %}blog-archive{% endblock %}
 
 {% block header %}
-<ul class="nav-bar">
-    <li>Archive: </li>
-    {% if previous_month|has_posts_in_month %}
-        {% with previous_month|date:"F" as month_str %}
-    <li><a href="{% url blog_archive_month year=previous_month.year,month=month_str.lower %}">{{ month_str }} {{ previous_month.year }}</a></li>
-        {% endwith %}
-    {% endif %}
-    {% with month|date:"F" as month_str %}
-    <li><a class="active" href="{% url blog_archive_month year=month.year,month=month_str.lower %}">{{ month_str }} {{ month.year }}</a></li>
-    {% endwith %}
-    {% if next_month|has_posts_in_month %}
-        {% with next_month|date:"F" as month_str %}
-    <li><a href="{% url blog_archive_month year=next_month.year,month=month_str.lower %}">{{ month_str }} {{ next_month.year }}</a></li>
-        {% endwith %}
-    {% endif %}
-</ul>
+{% if category %}
+    {% category_nav category %}
+    {% archive_nav month category %}
+{% else %}
+    {% category_nav %}
+    {% archive_nav month %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
-    {% for blogpost in blogpost_list %}
-        {% include "blog/_blogpost_list_item.html" %}
-        {% get_comment_count for blogpost as comment_count %}
-        <div class="post-meta">
-            {% if not comment_count %}
-            No comments
-            {% else %}
-            <a href="{{ blogpost.get_absolute_url }}#comments">{{ comment_count }} comment{{ comment_count|pluralize }}</a>
-            {% endif %}
-            &mdash;
-            <a href="{{ blogpost.get_absolute_url }}#comment_form">Post a comment</a>
-        </div>
-    {% endfor %}
+    {% include "blog/_blogpost_list.html" %}
 {% endblock %}

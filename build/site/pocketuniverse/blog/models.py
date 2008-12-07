@@ -18,6 +18,10 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('blog_category_detail', (), {'category_slug': self.slug})
+
 
 class BlogPost(models.Model):
     """A simple blog post"""

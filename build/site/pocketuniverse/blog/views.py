@@ -9,7 +9,8 @@ def home(request):
         BlogPost.objects.all(),
         date_field='pub_date',
         template_name='blog/home.html',
-        template_object_name='latest_blogposts')
+        template_object_name='blogpost_list',
+        )
 
 
 def post_detail(request, year, month, day, slug):
@@ -21,19 +22,23 @@ def post_detail(request, year, month, day, slug):
         slug=slug, slug_field='slug',
         date_field='pub_date',
         queryset=BlogPost.objects.all(),
-        template_object_name='blogpost'
+        template_object_name='blogpost',
         )
 
 
-def archive_month(request, year, month):
+def archive_month(request, year, month, category_slug=None):
+    queryset = BlogPost.objects.all()
+    if category_slug:
+        queryset = queryset.filter(category__slug=category_slug)
     return date_based.archive_month(
         request,
         year=year,
         month=month, month_format="%B",
         date_field='pub_date',
-        queryset=BlogPost.objects.all(),
-        template_object_name='blogpost'
+        queryset=queryset,
+        template_object_name='blogpost',
         )
+
 
 def category_detail(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
@@ -42,4 +47,6 @@ def category_detail(request, category_slug):
         category.blogpost_set.all(),
         date_field='pub_date',
         template_name='blog/category_detail.html',
-        template_object_name='latest_blogposts')
+        template_object_name='blogpost_list',
+        extra_context={'category': category},
+        )

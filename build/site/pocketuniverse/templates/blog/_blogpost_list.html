@@ -1,0 +1,15 @@
+{% load comments %}
+
+{% for blogpost in blogpost_list %}
+    {% include "blog/_blogpost_list_item.html" %}
+    {% get_comment_count for blogpost as comment_count %}
+    <div class="post-meta">
+        {% if not comment_count %}
+        No comments
+        {% else %}
+        <a href="{{ blogpost.get_absolute_url }}#comments">{{ comment_count }} comment{{ comment_count|pluralize }}</a>
+        {% endif %}
+        &mdash;
+        <a href="{{ blogpost.get_absolute_url }}#comment_form">Post a comment</a>
+    </div>
+{% endfor %}

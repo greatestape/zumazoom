@@ -78,8 +78,9 @@ ul li {
         color: white;
     }
 
-    #Header .nav-bar {
+    #Header ul.nav-bar {
         list-style: none;
+        clear: both;
     }
 
     #Header ul.nav-bar li {
