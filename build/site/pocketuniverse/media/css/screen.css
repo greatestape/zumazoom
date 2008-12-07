@@ -157,8 +157,22 @@ ul li {
             padding: 10px 0px;
         }
 
-        .blue {
+        .blue, .dev-category {
             background-image: url("../images/stripe-blue.png");
+        }
+
+        #Header .nav-bar .dev-cat-nav-item a {
+            border-left: solid #2340D0 18px;
+            padding-left: 5px;
+        }
+
+        .red, .personal-category {
+            background-image: url("../images/stripe-red.png");
+        }
+
+        #Header .nav-bar .personal-cat-nav-item a {
+            border-left: solid #BF482D 18px;
+            padding-left: 5px;
         }
 
         #MainContent .blog-post h2 a {

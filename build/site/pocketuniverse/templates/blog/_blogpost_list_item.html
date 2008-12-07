@@ -1,6 +1,6 @@
 {% load pygmented_markdown %}
 
-<div class="blog-post blue">
+<div class="blog-post{% if blogpost.category %} {{ blogpost.category.slug }}-category{% endif %}">
     <div class="date">
         <p class="month">{{ blogpost.pub_date|date:"M" }}</p>
         <p class="day">{{ blogpost.pub_date|date:"j" }}</p>

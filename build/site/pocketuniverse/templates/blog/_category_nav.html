@@ -3,7 +3,7 @@
 <ul class="nav-bar">
     <li>Categor{{ categories|pluralize:"y,ies" }}: </li>
 {% for category in categories %}
-    <li{% ifequal category active_category %} class="active"{% endifequal %}>
+    <li class="{{ category.slug }}-cat-nav-item{% ifequal category active_category %} active{% endifequal %}">
         <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
     </li>
 {% endfor %}

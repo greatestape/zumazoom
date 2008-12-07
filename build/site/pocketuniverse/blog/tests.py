@@ -38,7 +38,7 @@ class HomePageTestCase(TestCase):
 
 
 class PostDetailTestCase(TestCase):
-    fixtures = ['test.json']
+    fixtures = ['categories_test.json']
 
     def setUp(self):
         self.client = client.Client()
@@ -52,6 +52,10 @@ class PostDetailTestCase(TestCase):
     def testPostTitleInResponse(self):
         response = self.client.get(self.post.get_absolute_url())
         self.assertContains(response, self.post.title)
+
+    def testPostHasCategoryClass(self):
+        response = self.client.get(self.post.get_absolute_url())
+        self.assertContains(response, 'class="blog-post %s-category"' % self.post.category.slug)
 
 
 class CategoryDetailTestCase(TestCase):
