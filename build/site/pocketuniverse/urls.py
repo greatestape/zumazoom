@@ -1,10 +1,11 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 
-from blog.feeds import LatestPosts, LatestCommentsAtomFeed
+from blog.feeds import LatestPosts, LatestPostsInCategory, LatestCommentsAtomFeed
 
 feeds = {
     'latest': LatestPosts,
+    'categories': LatestPostsInCategory,
     'comments': LatestCommentsAtomFeed,
 }
 
