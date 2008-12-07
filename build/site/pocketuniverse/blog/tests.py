@@ -38,7 +38,7 @@ class HomePageTestCase(TestCase):
 
 
 class PostDetailTestCase(TestCase):
-    fixtures = ['categories_test.json']
+    fixtures = ['test.json']
 
     def setUp(self):
         self.client = client.Client()
@@ -59,7 +59,7 @@ class PostDetailTestCase(TestCase):
 
 
 class CategoryDetailTestCase(TestCase):
-    fixtures = ['categories_test.json']
+    fixtures = ['test.json']
 
     def setUp(self):
         self.client = client.Client()
