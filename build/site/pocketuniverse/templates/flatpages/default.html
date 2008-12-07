@@ -5,6 +5,8 @@
 {% block title %}{{ block.super }} - {{ flatpage.title }}{% endblock %}
 
 {% block content %}
-<h1>{{ flatpage.title }}</h1>
-{{ flatpage.content|markdown }}
+<div class="naked">
+    <h1>{{ flatpage.title }}</h1>
+    {{ flatpage.content|markdown }}
+</div>
 {% endblock %}

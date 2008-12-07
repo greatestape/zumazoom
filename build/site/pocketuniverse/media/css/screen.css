@@ -132,18 +132,11 @@ ul li {
             min-height: 500px;
         }
 
-        #MainContent h1,
-        #MainContent  p,
-        #MainContent div,
-        #MainContent ul {
+        #MainContent .naked {
             margin-left: 324px;
             margin-right: 60px;
         }
 
-        #MainContent div div,
-        #MainContent div h1 {
-            margin: 0px;
-        }
 
         #MainContent h1 {
             margin-bottom: 10px;
@@ -207,14 +200,15 @@ ul li {
             font-size: 20pt;
         }
 
-        #MainContent .blog-post h2,
-        #MainContent .blog-post p,
-        #MainContent .blog-post pre,
-        #MainContent .blog-post ul,
-        #MainContent .blog-post ol
+        #MainContent .blog-post .main
         {
             margin-left: 260px;
             margin-right: 100px;
+        }
+
+        #MainContent .blog-post ol p {
+            margin-left: 0px;
+            margin-right: 0px;
         }
 
         #MainContent .blog-post pre {
@@ -238,7 +232,7 @@ ul li {
             margin-bottom: 0px;
         }
 
-        .blog-post pre, blog-post code {
+        .blog-post pre, .blog-post code {
             font-family: Monaco, Courier, monospace;
         }
 

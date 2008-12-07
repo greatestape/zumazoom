@@ -3,7 +3,7 @@
 {% for blogpost in blogpost_list %}
     {% include "blog/_blogpost_list_item.html" %}
     {% get_comment_count for blogpost as comment_count %}
-    <div class="post-meta">
+    <div class="post-meta naked">
         {% if not comment_count %}
         No comments
         {% else %}

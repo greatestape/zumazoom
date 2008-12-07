@@ -10,7 +10,7 @@
 {% include "blog/_blogpost_list_item.html" %}
 {% get_comment_list for blogpost as comment_list  %}
 {% for comment in comment_list %}
-<div class="comment">
+<div class="comment naked">
     <a name="comments"></a>
     {{ comment.comment|escape|linebreaks }}
     &mdash;
@@ -22,7 +22,7 @@
     ({{ comment.submit_date|naturalday:"F d, Y" }} at {{ comment.submit_date|time:"g:i a"}})
 </div>
 {% endfor %}
-<div class="comment-form">
+<div class="comment-form naked">
     <a name="comment_form"></a>
     {% render_comment_form for blogpost %}
 </div>

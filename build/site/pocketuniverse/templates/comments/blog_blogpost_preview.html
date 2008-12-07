@@ -7,7 +7,7 @@
 {% block title %}{{ block.super }} - Comment Preview{% endblock %}
 
 {% block content %}
-<div class="comment-form">
+<div class="comment-form naked">
     {% load comments %}
     <form action="{% comment_form_target %}" method="POST">
       {% if form.errors %}
