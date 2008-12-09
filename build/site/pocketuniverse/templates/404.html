@@ -6,6 +6,8 @@
 
 {% block body_class %}page-not-found{% endblock %}
 {% block content %}
-    <h1>{% trans "The page you are looking for could not be found. (Error 404)" %}</h1>
-    <p>{% trans "For one reason or another (mis-typed URL, faulty referral from another site, out-of-date search engine listing or we simply deleted a file) the page you were after is not here." %}</p>
+    <div class="naked">
+        <h1>{% trans "The page you are looking for could not be found. (Error 404)" %}</h1>
+        <p>{% trans "For one reason or another (mis-typed URL, faulty referral from another site, out-of-date search engine listing or we simply deleted a file) the page you were after is not here." %}</p>
+    </div>
 {% endblock %}
