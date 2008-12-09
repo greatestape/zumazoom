@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'django_evolution',
 
     'blog',
+    'clock',
     'flatpage_fixtures',
     'pygmented_markdown',
 )
