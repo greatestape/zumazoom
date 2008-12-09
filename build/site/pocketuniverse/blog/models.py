@@ -30,6 +30,7 @@ class BlogPost(models.Model):
     pub_date = models.DateTimeField(_('pub_date'), default=datetime.datetime.now)
     category = models.ForeignKey(Category, null=True, blank=True, verbose_name=_('category'))
     body = models.TextField(_('body'), blank=True)
+    preview = models.TextField(_('preview'), blank=True)
 
     class Meta:
         verbose_name = _('blog post')

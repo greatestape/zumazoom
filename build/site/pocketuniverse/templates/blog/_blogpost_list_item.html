@@ -7,6 +7,11 @@
     </div>
     <div class="main">
         <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
+        {% if preview and blogpost.preview %}
+        {{ blogpost.preview|markdown }}
+        <p><a href="{{ blogpost.get_absolute_url }}">More...</a></p>
+        {% else %}
         {{ blogpost.body|markdown }}
+        {% endif %}
     </div>
 </div>

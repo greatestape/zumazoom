@@ -10,6 +10,7 @@ def home(request):
         date_field='pub_date',
         template_name='blog/home.html',
         template_object_name='blogpost_list',
+        extra_context={'preview': True}
         )
 
 
@@ -30,6 +31,7 @@ def archive_month(request, year, month, category_slug=None):
     queryset = BlogPost.objects.all()
     if category_slug:
         queryset = queryset.filter(category__slug=category_slug)
+
     return date_based.archive_month(
         request,
         year=year,
@@ -37,6 +39,7 @@ def archive_month(request, year, month, category_slug=None):
         date_field='pub_date',
         queryset=queryset,
         template_object_name='blogpost',
+        extra_context={'preview': True}
         )
 
 
@@ -48,5 +51,5 @@ def category_detail(request, category_slug):
         date_field='pub_date',
         template_name='blog/category_detail.html',
         template_object_name='blogpost_list',
-        extra_context={'category': category},
+        extra_context={'category': category, 'preview': True},
         )
