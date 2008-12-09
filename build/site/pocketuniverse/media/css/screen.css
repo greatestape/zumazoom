@@ -236,6 +236,10 @@ ul li {
             font-family: Monaco, Courier, monospace;
         }
 
+        #MainContent .blog-post .clearer {
+            clear: both;
+        }
+
         #MainContent .comment-form p,
         #MainContent .comment p {
             margin: 0px;
