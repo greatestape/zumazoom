@@ -1,5 +1,6 @@
 import math
 
+import aggdraw
 from PIL import Image, ImageDraw
 
 from clock.clockwork import get_amount_of_sun
@@ -9,13 +10,12 @@ DAY_SUN_COLOUR = (255, 255, 0)
 TWILIGHT_SUN_COLOUR = (255, 0, 0)
 
 def create_clock(timestamp, radius, thickness):
-    double_radius = radius * 2
-    image = Image.new("RGBA", (double_radius * 2, double_radius * 2), color="#FFFFFF")
-    draw = ImageDraw.Draw(image)
-    draw_clock_image(image, draw, timestamp, double_radius, thickness)
-    draw_sun_image(image, draw, timestamp, double_radius, thickness)
-    del draw
-    return image.resize((radius * 2, radius * 2), Image.ANTIALIAS)
+    image = Image.new("RGBA", (radius * 2, radius * 2), color="#FFFFFF")
+    draw = aggdraw.Draw(image)
+    draw_clock_image(draw, timestamp, radius, thickness)
+    draw_sun_image(draw, timestamp, radius, thickness)
+    draw.flush()
+    return image
 
 
 def draw_clock_image(draw, timestamp, radius, hand_width):
@@ -28,8 +28,17 @@ def draw_clock_image(draw, timestamp, radius, hand_width):
     hour_hand = translate_polygon(rotate_polygon(make_clock_hand(hand_width, hour_hand_length, (radius, radius)), -hour_angle), radius, radius)
     minute_hand = translate_polygon(rotate_polygon(make_clock_hand(hand_width, minute_hand_length, (radius, radius)), -minute_angle), radius, radius)
 
-    draw.polygon(hour_hand, fill="#4C4C4C")
-    draw.polygon(minute_hand, fill="#4C4C4C")
+    brush = aggdraw.Brush("#4C4C4C")
+
+    flat_hour_hand = []
+    for coords in hour_hand:
+        flat_hour_hand += [round(coords[0]), round(coords[1])]
+    draw.polygon(flat_hour_hand, None, brush)
+
+    flat_minute_hand = []
+    for coords in minute_hand:
+        flat_minute_hand += [round(coords[0]), round(coords[1])]
+    draw.polygon(flat_minute_hand, None, brush)
 
 
 def draw_sun_image(draw, timestamp, arc_radius, sun_radius):
@@ -37,9 +46,10 @@ def draw_sun_image(draw, timestamp, arc_radius, sun_radius):
 
     sun_x = arc_radius + math.cos(sun_angle) * (arc_radius - sun_radius)
     sun_y = arc_radius - math.sin(sun_angle) * (arc_radius - sun_radius)
-    bounding_box = [(sun_x - sun_radius, sun_y - sun_radius), (sun_x + sun_radius, sun_y + sun_radius)]
+    bounding_box = [sun_x - sun_radius, sun_y - sun_radius, sun_x + sun_radius, sun_y + sun_radius]
     sun_colour = get_sun_colour(timestamp)
-    draw.ellipse(bounding_box, fill='rgb(%s,%s,%s)' % sun_colour)
+    brush = aggdraw.Brush('rgb(%s, %s, %s)' % sun_colour)
+    draw.ellipse(bounding_box, None, brush)
 
 
 def get_sun_colour(timestamp):
