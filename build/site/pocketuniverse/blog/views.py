@@ -6,7 +6,7 @@ from blog.models import BlogPost, Category
 def home(request):
     return date_based.archive_index(
         request,
-        BlogPost.objects.all(),
+        BlogPost.objects.public_posts(),
         date_field='pub_date',
         template_name='blog/home.html',
         template_object_name='blogpost_list',
@@ -15,6 +15,10 @@ def home(request):
 
 
 def post_detail(request, year, month, day, slug):
+    if request.user.is_staff:
+        queryset = BlogPost.objects.all()
+    else:
+        queryset = BlogPost.objects.public_posts()
     return date_based.object_detail(
         request,
         year=year,
@@ -22,15 +26,16 @@ def post_detail(request, year, month, day, slug):
         day=day,
         slug=slug, slug_field='slug',
         date_field='pub_date',
-        queryset=BlogPost.objects.all(),
+        queryset=queryset,
         template_object_name='blogpost',
         )
 
 
 def archive_month(request, year, month, category_slug=None):
-    queryset = BlogPost.objects.all()
+    queryset = BlogPost.objects.public_posts()
     if category_slug:
-        queryset = queryset.filter(category__slug=category_slug)
+        category = get_object_or_404(Category, slug=category_slug)
+        queryset = queryset.filter(category=category)
 
     return date_based.archive_month(
         request,
@@ -39,7 +44,7 @@ def archive_month(request, year, month, category_slug=None):
         date_field='pub_date',
         queryset=queryset,
         template_object_name='blogpost',
-        extra_context={'preview': True}
+        extra_context={'category': category, 'preview': True}
         )
 
 
@@ -47,7 +52,7 @@ def category_detail(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     return date_based.archive_index(
         request,
-        category.blogpost_set.all(),
+        category.blogpost_set.public_posts(),
         date_field='pub_date',
         template_name='blog/category_detail.html',
         template_object_name='blogpost_list',

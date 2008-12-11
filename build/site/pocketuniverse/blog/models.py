@@ -23,14 +23,22 @@ class Category(models.Model):
         return ('blog_category_detail', (), {'category_slug': self.slug})
 
 
+class BlogPostManager(models.Manager):
+    def public_posts(self):
+        return self.get_query_set().filter(public=True)
+
+
 class BlogPost(models.Model):
     """A simple blog post"""
     title = models.CharField(_('title'), max_length=100)
     slug = models.SlugField(_('slug'), max_length=100, unique_for_date='pub_date')
     pub_date = models.DateTimeField(_('pub_date'), default=datetime.datetime.now)
+    public = models.BooleanField(_('public'), default=False)
     category = models.ForeignKey(Category, null=True, blank=True, verbose_name=_('category'))
     body = models.TextField(_('body'), blank=True)
     preview = models.TextField(_('preview'), blank=True)
+
+    objects = BlogPostManager()
 
     class Meta:
         verbose_name = _('blog post')

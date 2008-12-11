@@ -36,6 +36,13 @@ class HomePageTestCase(TestCase):
                                      })
         self.assertContains(response, 'href="%s"' % month_archive_url)
 
+    def testOnlyPublicPostsDisplayed(self):
+        response = self.client.get('/')
+        hidden_post = BlogPost.objects.filter(public=False)[0]
+        for blogpost in response.context[0]['blogpost_list']:
+            self.assertEqual(blogpost.public, True)
+        self.assertTrue(hidden_post not in response.context[0]['blogpost_list'])
+
 
 class PostDetailTestCase(TestCase):
     fixtures = ['test.json']
