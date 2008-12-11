@@ -27,3 +27,5 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = MEDIA_URL + 'admin/'
 
 PREPEND_WWW = True
+
+LOCATION = (43 + (40.0/60.0), -79 + (24.0/60.0))
