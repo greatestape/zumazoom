@@ -36,6 +36,8 @@ def archive_month(request, year, month, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         queryset = queryset.filter(category=category)
+    else:
+        category = None
 
     return date_based.archive_month(
         request,
