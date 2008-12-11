@@ -18,7 +18,7 @@ def create_clock(timestamp, radius, thickness):
     return image.resize((radius * 2, radius * 2), Image.ANTIALIAS)
 
 
-def draw_clock_image(image, draw, timestamp, radius, hand_width):
+def draw_clock_image(draw, timestamp, radius, hand_width):
     hour_hand_length = radius * 0.5
     minute_hand_length = radius * 0.75
 
@@ -32,7 +32,7 @@ def draw_clock_image(image, draw, timestamp, radius, hand_width):
     draw.polygon(minute_hand, fill="#4C4C4C")
 
 
-def draw_sun_image(image, draw, timestamp, arc_radius, sun_radius):
+def draw_sun_image(draw, timestamp, arc_radius, sun_radius):
     sun_angle = -2 * math.pi * (timestamp.hour / 24.0) - (math.pi / 2.0)
 
     sun_x = arc_radius + math.cos(sun_angle) * (arc_radius - sun_radius)
