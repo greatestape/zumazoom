@@ -77,3 +77,35 @@ class CategoryDetailTestCase(TestCase):
                                            (), {'category_slug': self.category.slug}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/category_detail.html')
+
+
+class ArchiveMonthTestCase(TestCase):
+    fixtures = ['test.json']
+
+    def setUp(self):
+        self.client = client.Client()
+
+    def testWithoutCategoryLoads(self):
+        response = self.client.get(reverse('blog_archive_month', None, (),
+                                           {'year': '2008', 'month': 'november'}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/blogpost_archive_month.html')
+        self.failUnless('category' in response.context[-1])
+        self.assertEqual(response.context[-1]['category'], None)
+        self.failUnless('month' in response.context[-1])
+        self.assertEqual(response.context[-1]['month'].year, 2008)
+        self.assertEqual(response.context[-1]['month'].month, 11)
+
+    def testWithCategoryLoads(self):
+        category = Category.objects.all()[0]
+        response = self.client.get(reverse('category_archive_month', None, (),
+                                           {'category_slug': category.slug,
+                                            'year': '2008',
+                                            'month': 'november'}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/blogpost_archive_month.html')
+        self.failUnless('category' in response.context[-1])
+        self.assertEqual(response.context[-1]['category'], category)
+        self.failUnless('month' in response.context[-1])
+        self.assertEqual(response.context[-1]['month'].year, 2008)
+        self.assertEqual(response.context[-1]['month'].month, 11)
