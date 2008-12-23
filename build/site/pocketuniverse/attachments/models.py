@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def _get_attachment_file_path(attachment, filename):
-    return 'files/%s/%s/%s/%s' % (
+    return 'managed/%s/%s/%s/%s' % (
         attachment.content_type.app_label,
         attachment.content_type.model,
         attachment.object_id,
