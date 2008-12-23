@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'django_evolution',
 
+    'attachments',
     'blog',
     'clock',
     'flatpage_fixtures',
