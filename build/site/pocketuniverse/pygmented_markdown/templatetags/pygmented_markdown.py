@@ -43,9 +43,9 @@ def _pygmented_markdown(text,
 
     extension_names = []
     extension_configs = {}
-    
+
     for ext in extensions:
-        pos = ext.find("(") 
+        pos = ext.find("(")
         if pos == -1:
             extension_names.append(ext)
         else:
