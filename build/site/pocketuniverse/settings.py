@@ -67,7 +67,6 @@ INSTALLED_APPS = (
     'blog',
     'clock',
     'flatpage_fixtures',
-    'pygmented_markdown',
 )
 
 # import local settings overriding the defaults

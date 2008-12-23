@@ -1,2 +1,2 @@
-{% load pygmented_markdown %}
-{{ obj.body|markdown }}
+{% load markup %}
+{{ obj.body|markdown:"pygments" }}

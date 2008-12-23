@@ -2,7 +2,7 @@
 
 {% load comments %}
 {% load humanize %}
-{% load pygmented_markdown %}
+{% load markup %}
 
 {% block title %}{{ block.super }} - {{ blogpost.title|markdown|striptags }}{% endblock %}
 

@@ -1,4 +1,4 @@
-{% load pygmented_markdown %}
+{% load markup %}
 
 {% load clock_tags %}
 
@@ -11,10 +11,10 @@
     <div class="main">
         <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
         {% if preview and blogpost.preview %}
-        {{ blogpost.preview|markdown }}
+        {{ blogpost.preview|markdown:"pygments" }}
         <p><a href="{{ blogpost.get_absolute_url }}">More...</a></p>
         {% else %}
-        {{ blogpost.body|markdown }}
+        {{ blogpost.body|markdown:"pygments" }}
         {% endif %}
     </div>
     <div class="clearer"></div>
