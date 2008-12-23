@@ -1,1 +1,1 @@
-SEQUENCE = ['add_category_fk', 'add_preview_field', 'add_public_field']
+SEQUENCE = ['add_category_fk', 'add_preview_field', 'add_public_field', 'rename_body_field', 'rename_preview_field']

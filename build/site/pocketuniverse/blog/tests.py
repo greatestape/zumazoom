@@ -109,3 +109,35 @@ class ArchiveMonthTestCase(TestCase):
         self.failUnless('month' in response.context[-1])
         self.assertEqual(response.context[-1]['month'].year, 2008)
         self.assertEqual(response.context[-1]['month'].month, 11)
+
+
+class EnhancedMarkdownTestCase(TestCase):
+    fixtures = ['test.json']
+
+    def testPlainBody(self):
+        post = BlogPost.objects.all()[0]
+        post.raw_body = 'plain body'
+        post.save()
+
+        self.assertEqual(post.html_body, '<p>plain body\n</p>')
+
+    def testBasicMarkupBody(self):
+        post = BlogPost.objects.all()[0]
+        post.raw_body = '*enhanced* body'
+        post.save()
+
+        self.assertEqual(post.html_body, '<p><em>enhanced</em> body\n</p>')
+
+    def testPlainPreview(self):
+        post = BlogPost.objects.all()[0]
+        post.raw_preview = 'plain preview'
+        post.save()
+
+        self.assertEqual(post.html_preview, '<p>plain preview\n</p>')
+
+    def testBasicMarkupPreview(self):
+        post = BlogPost.objects.all()[0]
+        post.raw_preview = '*enhanced* preview'
+        post.save()
+
+        self.assertEqual(post.html_preview, '<p><em>enhanced</em> preview\n</p>')

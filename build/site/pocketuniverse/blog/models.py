@@ -1,7 +1,10 @@
 import datetime
 
 from django.db import models
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+
+import markdown
 
 
 class Category(models.Model):
@@ -35,8 +38,8 @@ class BlogPost(models.Model):
     pub_date = models.DateTimeField(_('pub_date'), default=datetime.datetime.now)
     public = models.BooleanField(_('public'), default=False)
     category = models.ForeignKey(Category, null=True, blank=True, verbose_name=_('category'))
-    body = models.TextField(_('body'), blank=True)
-    preview = models.TextField(_('preview'), blank=True)
+    raw_body = models.TextField(_('body'), blank=True)
+    raw_preview = models.TextField(_('preview'), blank=True)
 
     objects = BlogPostManager()
 
@@ -59,3 +62,11 @@ class BlogPost(models.Model):
             'day': self.pub_date.day,
             'slug': self.slug,
             })
+
+    @property
+    def html_body(self):
+        return mark_safe(markdown.markdown(self.raw_body, ('pygments',)))
+
+    @property
+    def html_preview(self):
+        return mark_safe(markdown.markdown(self.raw_preview, ('pygments',)))

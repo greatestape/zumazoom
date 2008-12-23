@@ -10,11 +10,11 @@
     </div>
     <div class="main">
         <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
-        {% if preview and blogpost.preview %}
-        {{ blogpost.preview|markdown:"pygments" }}
+        {% if preview and blogpost.html_preview %}
+        {{ blogpost.html_preview }}
         <p><a href="{{ blogpost.get_absolute_url }}">More...</a></p>
         {% else %}
-        {{ blogpost.body|markdown:"pygments" }}
+        {{ blogpost.html_body }}
         {% endif %}
     </div>
     <div class="clearer"></div>
