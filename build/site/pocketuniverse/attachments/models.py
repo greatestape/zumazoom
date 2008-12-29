@@ -6,6 +6,16 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
+FILE_TYPES = {
+    'image': set(['jpg', 'jpeg', 'png', 'gif']),
+}
+
+FILE_TYPES_LOOKUP = {}
+for ftype, extensions in FILE_TYPES.items():
+    for ext in extensions:
+        FILE_TYPES_LOOKUP['.%s' % ext] = ftype
+
+
 def _get_attachment_file_path(attachment, filename):
     return 'managed/%s/%s/%s/%s' % (
         attachment.content_type.app_label,
@@ -31,6 +41,11 @@ class Attachment(models.Model):
             'file': self.attached_file.name.rsplit('/',1)[1],
             'obj': self.target_object,
             }
+
+    @property
+    def file_type(self):
+        filename, ext = os.path.splitext(self.attached_file.name)
+        return FILE_TYPES_LOOKUP.get(ext, 'other')
 
     @property
     def filename(self):
