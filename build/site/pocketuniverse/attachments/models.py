@@ -1,3 +1,5 @@
+import os.path
+
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
@@ -29,3 +31,7 @@ class Attachment(models.Model):
             'file': self.attached_file.name.rsplit('/',1)[1],
             'obj': self.target_object,
             }
+
+    @property
+    def filename(self):
+        return os.path.split(self.attached_file.name)[1]
