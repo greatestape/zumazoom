@@ -62,11 +62,3 @@ class BlogPost(models.Model):
             'day': self.pub_date.day,
             'slug': self.slug,
             })
-
-    @property
-    def html_body(self):
-        return mark_safe(markdown.markdown(self.raw_body, ('pygments',)))
-
-    @property
-    def html_preview(self):
-        return mark_safe(markdown.markdown(self.raw_preview, ('pygments',)))

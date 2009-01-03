@@ -111,31 +111,3 @@ class ArchiveMonthTestCase(TestCase):
         self.failUnless('month' in response.context[-1])
         self.assertEqual(response.context[-1]['month'].year, 2008)
         self.assertEqual(response.context[-1]['month'].month, 11)
-
-
-class EnhancedMarkdownTestCase(TestCase):
-    fixtures = ['test.json']
-
-    def testPlain(self):
-        post = BlogPost.objects.all()[0]
-        post.raw_body = 'plain body'
-        post.raw_preview = 'plain preview'
-        post.save()
-        self.assertEqual(post.html_body, '<p>plain body\n</p>')
-        self.assertEqual(post.html_preview, '<p>plain preview\n</p>')
-
-    def testBasicMarkup(self):
-        post = BlogPost.objects.all()[0]
-        post.raw_body = '*enhanced* body'
-        post.raw_preview = '*enhanced* preview'
-        post.save()
-        self.assertEqual(post.html_body, '<p><em>enhanced</em> body\n</p>')
-        self.assertEqual(post.html_preview, '<p><em>enhanced</em> preview\n</p>')
-
-    def testPygmentsMarkup(self):
-        post = BlogPost.objects.all()[0]
-        post.raw_body = 'source code in body:\n[sourcecode:python]a = 1[/sourcecode]'
-        post.raw_preview = 'source code in preview:\n[sourcecode:python]a = 1[/sourcecode]'
-        post.save()
-        self.assertEqual(post.html_body, '<p>source code in body:\n</p>\n<div class="code"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mf">1</span><br /></pre></div><br /></div>')
-        self.assertEqual(post.html_preview, '<p>source code in preview:\n</p>\n<div class="code"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mf">1</span><br /></pre></div><br /></div>')
