@@ -25,7 +25,6 @@ class AttachmentPreprocessor(markdown.TextPreprocessor):
     pattern = re.compile(r'\[attach:(.+?)(?:\|(.+?))??\]')
 
     def __init__(self, content_type_id, object_id, attachment_template):
-        print content_type_id, object_id, attachment_template
         qs = Attachment.objects.all()
         if content_type_id:
             qs = qs.filter(content_type__id=content_type_id)
