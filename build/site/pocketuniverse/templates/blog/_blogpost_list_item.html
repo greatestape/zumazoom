@@ -1,6 +1,7 @@
 {% load markup %}
 
 {% load clock_tags %}
+{% load blog_markup %}
 
 <div class="blog-post{% if blogpost.category %} {{ blogpost.category.slug }}-category{% endif %}">
     <div class="date">
@@ -10,11 +11,11 @@
     </div>
     <div class="main">
         <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
-        {% if preview and blogpost.html_preview %}
-        {{ blogpost.html_preview }}
+        {% if preview and blogpost.raw_preview %}
+        {% format_preview blogpost "blog/_blogpost_attachment.html" %}
         <p><a href="{{ blogpost.get_absolute_url }}">More...</a></p>
         {% else %}
-        {{ blogpost.html_body }}
+        {% format_body blogpost "blog/_blogpost_attachment.html" %}
         {% endif %}
     </div>
     <div class="clearer"></div>
