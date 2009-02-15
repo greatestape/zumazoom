@@ -247,7 +247,8 @@ blockquote {
 
         #MainContent .comment-form p,
         #MainContent .comment p {
-            margin: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
         }
 
         #MainContent .comment-form,
