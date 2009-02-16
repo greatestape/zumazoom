@@ -12,7 +12,7 @@
 {% for comment in comment_list %}
 <div class="comment naked">
     <a name="comments"></a>
-    {{ comment.comment|escape|linebreaks }}
+    {{ comment.comment|markdown:"safe" }}
     &mdash;
     {% if comment.url %}
         <a href="{{ comment.url }}">{{ comment.name }}</a>
