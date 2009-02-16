@@ -2,6 +2,7 @@
 
 {% load comments %}
 {% load humanize %}
+{% load markup %}
 
 {% block title %}{{ block.super }} - Comment Preview{% endblock %}
 
@@ -13,7 +14,7 @@
         <h1>Please correct the error{{ form.errors|pluralize }} below</h1>
       {% else %}
         <h1>Preview your comment</h1>
-        <blockquote class="comment">{{ comment|escape|linebreaks }}</blockquote>
+        <blockquote class="comment">{{ comment|markdown:"safe" }}</blockquote>
         <p>
           and <input type="submit" name="submit" value="Post your comment" id="submit"> or make changes:
         </p>
