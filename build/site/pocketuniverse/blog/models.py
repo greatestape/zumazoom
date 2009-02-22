@@ -47,6 +47,7 @@ class BlogPost(models.Model):
         verbose_name = _('blog post')
         verbose_name_plural = _('blog posts')
         ordering = ('-pub_date',)
+        get_latest_by = 'pub_date'
 
     def __unicode__(self):
         return _('%(title)s (Posted: %(pub_date)s)') % {
