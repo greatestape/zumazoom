@@ -16,7 +16,7 @@ class LatestPosts(Feed):
     feed_type = Atom1Feed
 
     def items(self):
-        return BlogPost.objects.order_by('-pub_date')[:5]
+        return BlogPost.objects.public_posts().order_by('-pub_date')[:5]
 
     def item_pubdate(self, item):
         return item.pub_date
@@ -42,7 +42,7 @@ class LatestPostsInCategory(LatestPosts):
     author_name = 'Sam Bull'
 
     def items(self, obj):
-        return obj.blogpost_set.order_by('-pub_date')[:5]
+        return obj.blogpost_set.public_posts().order_by('-pub_date')[:5]
 
 
 class LatestCommentsAtomFeed(LatestCommentFeed):
