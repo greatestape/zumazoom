@@ -15,6 +15,10 @@ LANGUAGE_CODE = 'en-ca'
 gettext = lambda s: s
 LANGUAGES = (('en-ca', gettext('English')),)
 
+AKISMET_API_KEY = '21adb0516170'
+
+BLOG_AUTHOR_ID = 1
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
@@ -64,6 +68,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'django_evolution',
 
+    'akismet_on_comments',
     'attachments',
     'blog',
     'clock',

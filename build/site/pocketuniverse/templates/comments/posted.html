@@ -4,7 +4,11 @@
 
 {% block content %}
 <div class="naked">
+    {% if comment.is_public %}
     <h1>Comment Posted</h1>
+    {% else %}
+    <h1>Comment Held For Review</h1>
+    {% endif %}
     <p><a class="obvious" href="{{ comment.content_object.get_absolute_url }}">Return to blog post</a></p>
 </div>
 {% endblock %}
