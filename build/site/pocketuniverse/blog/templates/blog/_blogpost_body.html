@@ -1,3 +1,4 @@
-{% load blog_markup %}
+{% load markup %}
 
-{% format_body obj "blog/_blogpost_attachment.html" %}
+{{ obj.md_body|markdown:"pygments,attachments(t=blog/_blogpost_newsfeed_attachment.html)" }}
+

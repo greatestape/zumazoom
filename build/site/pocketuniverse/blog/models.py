@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import markdown
 
+from attachments.markdown_extensions import connect_attachments
 
 class Category(models.Model):
     """A category of blog post"""
@@ -63,3 +64,11 @@ class BlogPost(models.Model):
             'day': self.pub_date.day,
             'slug': self.slug,
             })
+
+    @property
+    def md_body(self):
+        return connect_attachments(self, self.raw_body)
+
+    @property
+    def md_preview(self):
+        return connect_attachments(self, self.raw_preview)
