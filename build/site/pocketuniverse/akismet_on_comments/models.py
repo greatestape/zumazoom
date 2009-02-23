@@ -1,4 +1,5 @@
 from django.contrib.comments.signals import comment_was_posted
+from django.db import IntegrityError
 
 def on_comment_was_posted(sender, comment, request, *args, **kwargs):
     # spam checking can be enabled/disabled per the comment's target Model
@@ -37,10 +38,14 @@ def on_comment_was_posted(sender, comment, request, *args, **kwargs):
 
         if ak.comment_check(comment.comment.encode('utf-8'), data=data, build_data=True):
             from django.contrib.auth.models import User
-            comment.flags.create(
-                user=User.objects.get(id=settings.BLOG_AUTHOR_ID),
-                flag='spam'
-            )
+            try:
+                comment.flags.create(
+                    user=User.objects.get(id=settings.BLOG_AUTHOR_ID),
+                    flag='spam'
+                )
+            except IntegrityError:
+                # Comment is already flagged.
+                pass
             comment.is_public = False
             comment.save()
 
