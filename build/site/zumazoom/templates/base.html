@@ -1,117 +1,114 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
 
-{% load i18n %}
+two-column, fixed-width
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE|slice:"2" }}" lang="{{ LANGUAGE_CODE|slice:"2" }}">
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="verify-v1" content="Ta+rgwvsYjVedNU0yGz6fa9Ff0rvwgzYgD7g0iij9Hs=" />
-    <title>{% block title %}{% trans "pocketuniverse" %}{% endblock %}</title>
-
-    {# TODO: <link rel="shortcut icon" type="image/ico" href="{{ MEDIA_URL }}images/favicon.ico" /> #}
-
-    <style type="text/css" media="all">
-        @import "{{ MEDIA_URL }}css/reset.css";
-        @import "{{ MEDIA_URL }}css/screen.css";
-        {% if debug %}@import url("{{ MEDIA_URL }}css/debug.css");{% endif %}
-    </style>
-    {% block css %}{% endblock %}
-
-    <!--[if lt IE 7]>
-        <style type="text/css" media="all">
-            @import url("{{ MEDIA_URL }}css/ie.css");
-        </style>
-    <![endif]-->
-
-    <!--[if IE 6]>
-        <style type="text/css" media="all">
-            @import url("{{ MEDIA_URL }}css/ie6.css");
-        </style>
-    <![endif]-->
-    {% block css_ie %}{% endblock %}
-
-    <style type="text/css" media="print">
-        @import "{{ MEDIA_URL }}css/print.css";
-    </style>
-
-    {# TODO: <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-x.x.x.min.js"></script> #}
-    {% block javascript_library %}{% endblock %}
-
-    {# TODO: <script type="text/javascript" src="{{ MEDIA_URL }}js/[project-name].js"></script> #}
-    {% block javascript %}{% endblock %}
-
-    {% comment %}
-    <script type="text/javascript">
-    //<![CDATA[
-        if (typeof trapeze != "undefined") {
-            trapeze.[project_name].media_path = "{{ MEDIA_URL }}";
-        }
-    //]]>
-    </script>
-    {% endcomment %}
-
-    {% block syndication %}{% endblock %}
+    
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>zumazoom: {% block title %}i'm not sure what it really means either, but I think it's one of those blog things.{% endblock %}</title>
+<meta name="keywords" content="11 days in paris, part two" />
+<meta name="description" content="miscellaneous and rambling rumblings" />
+<link href="{{ MEDIA_URL }}css/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="{% block body_class %}{% endblock %}">
-    <div id="Container">
-        <div id="Header">
-            <a href="http://www.djangoproject.com"><div id="BadgeBar"><img src="{{ MEDIA_URL }}images/pony_power.gif" alt="Powered By Magical Django Ponies" /></a></div>
-            <h1 id="SiteTitle"><a href="/">pocketuniverse</a></h1>
-            <h2 id="SiteSubTitle"><a href="/about/" title="About">Sam Bull</a>'s Blog</h2>
-            {% block header %}{% endblock %}
-        </div>
-        <div id="ContentWrapper" class="{% block column_class %}one-column{% endblock %}">
-            <div id="MainContent">{% block content %}{% endblock %}</div>
-        </div>
-        <div id="Footer">
-        </div>
+<body>
+<!-- start header -->
+<div id="header">
+    {% block header %}
+    <div id="logo">
+        <h1><a href="/">zumazoom:<sup></sup></a></h1>
+        <h2>infrequent rambling musings from ds</h2>
     </div>
-
-<!-- Website Tracking Scripts -->
-        <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-6436881-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-
-{% if debug %}
-    <div id="DebugBox">
-        <h2>Debug Info</h2>
-        <p>
-            {{ sql_queries|length }} Quer{{ sql_queries|pluralize:"y,ies" }}
-            {% ifnotequal sql_queries|length 0 %}
-            (<span style="cursor: pointer;" onclick="var s=document.getElementById('DebugQueryTable').style;s.display=s.display=='none'?'':'none';this.innerHTML=this.innerHTML=='Show'?'Hide':'Show';">Show</span>)
-            {% endifnotequal %}
-        </p>
-        <table id="DebugQueryTable" style="display: none;">
-            <col width="1"></col>
-            <col></col>
-            <col width="1"></col>
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">SQL</th>
-                    <th scope="col">Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for query in sql_queries %}
-                <tr class="{% cycle odd,even %}">
-                    <td>{{ forloop.counter }}</td>
-                    <td class="sql-code">{{ query.sql|escape }}</td>
-                    <td>{{ query.time }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div id="menu">
+        <ul>
+            <li class="active"><a href="/">home</a></li>
+            <li><a href="#">colophon</a></li>
+            <li><a href="#">links</a></li>
+            <li><a href="#">contact me</a></li>
+        </ul>
     </div>
-{% endif %}
+    {% endblock %}
+</div>
+<!-- end header -->
 
+<!-- start page -->
+<div id="page">
+    <!-- start content -->
+    <div id="content">
+        {% block content %}
+        <div class="post">
+            <h2 class="title"><b>Welcome to </b>zumazoom</h2>
+            <p class="date">Mar<b>03</b></p>
+            <div class="entry">
+                <p>This is where I am going to be dropping my first entry post into.  Likely something about alcohol and France.  Would be great to be able to embed images as well?</p>
+                <p>Second paragraph.  All blog entry text will be on this page, article will not link to 'full version'. I envision the first 3 posts on main page, subsequent posts all on a secondary page for now.  No comments requested/allowed.</p>
+            </div>
+            <div class="meta">
+                <p class="links"><a href="#" class="more">flickr link</a></p>
+            </div>
+        </div>
+        <div class="post">
+            <h2 class="title"><b>Second post</b> nothing important</h2>
+            <p class="date">Mar<b>03</b></p>
+            <div class="entry">
+            <p>I envision the flickr link as being dynamic and letting me link out to my flickr stream that I set up for that particular set of pictures for the blogpost.  Would need therefore to have the flickr url be dynamic and entered when I made the blog post</p>    
+            </div>
+            <div class="meta">
+                <p class="links"><a href="#" class="more">flickr link</a></p>
+            </div>
+        </div>
+        <div class="post">
+            <h2 class="title"><b>Third post</b> technically the first I guess...</h2>
+            <p class="date">Mar<b>03</b></p>
+            <div class="entry">
+                <p>If any of this seems too complex or fidgety, we can pull for now...main point for me is just to get content, ideally some embedded images up, and ultra-ideally would be to have a link out to different flickr streams to pics depending on the content. </p>
+            </div>
+            <div class="meta">
+                <p class="links"><a href="#" class="more">flickr link</a></p>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    <!-- end content -->
+    
+    
+    <!-- start sidebar -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2><strong>some</strong> links</h2>
+                <ul>
+                    <li><a href="#">sam's blog'</a></li>
+                    <li><a href="#">taylan's blog'</a></li>
+                    <li><a href="#">ideally dynamic, but...</a></li>
+                    <li><a href="#">can be static for now</a></li>
+                </ul> 
+            </li>
+            
+            <!-- 
+                <li>
+                <h2><b>nothing here</b> yet</h2>
+                <ul>
+                    <li><a href="#">will add in later...</a></li>
+                    <li><a href="#">envision this as static content</a></li>
+                </ul>
+            </li> 
+            -->
+        </ul>
+    </div>
+    <!-- end sidebar -->
+    
+    <div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+
+<!-- start footer -->
+
+<!-- end footer -->
 </body>
 </html>

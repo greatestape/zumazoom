@@ -8,11 +8,6 @@
 
 {% block body_class %}home-page{% endblock %}
 
-{% block header %}
-    {% category_nav %}
-    {% archive_nav %}
-{% endblock %}
-
 {% block content %}
     {% include "blog/_blogpost_list.html" %}
 {% endblock %}

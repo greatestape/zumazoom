@@ -1,20 +1,12 @@
 {% load markup %}
-{% load clock_tags %}
 
-<div class="blog-post{% if blogpost.category %} {{ blogpost.category.slug }}-category{% endif %}">
-    <div class="date">
-        <p class="month">{{ blogpost.pub_date|date:"M" }}</p>
-        <p class="day">{{ blogpost.pub_date|date:"j" }}</p>
-        <div class="time"><img src="{{ blogpost.pub_date|clock_url:60 }}"></div>
-    </div>
-    <div class="main">
-        <h2><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
-        {% if preview and blogpost.raw_preview %}
-        {{ blogpost.md_preview|markdown:"pygments,attachments(t=blog/_blogpost_attachment.html)" }}
-        <p><a href="{{ blogpost.get_absolute_url }}">More...</a></p>
-        {% else %}
+<div class="post">
+    <h2 class="title">{{ blogpost.title }}</h2>
+    <p class="date">{{ blogpost.pub_date|date:"M" }}<b>{{ blogpost.pub_date|date:"j" }}</b></p>
+    <div class="entry">
         {{ blogpost.md_body|markdown:"pygments,attachments(t=blog/_blogpost_attachment.html)" }}
-        {% endif %}
     </div>
-    <div class="clearer"></div>
+    <div class="meta">
+        <p class="links"><a href="#" class="more">flickr link</a></p>
+    </div>
 </div>
