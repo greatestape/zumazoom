@@ -68,11 +68,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'django_evolution',
 
-    'akismet_on_comments',
     'attachments',
     'blog',
-    'clock',
-    'flatpage_fixtures',
 )
 
 # import local settings overriding the defaults
