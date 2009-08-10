@@ -2,6 +2,8 @@ Zuma-Zoom Features
 
 - Blog
     - Tags on Blog Posts
+    - Remove clock app
+    - Add external link field to photo model
     - Span multiple sites from one back-end (Sites)
     - Be able to access a pool of photos for attaching to a blog post (bulk upload/flickr integration/dropbox integration)
     - location field
