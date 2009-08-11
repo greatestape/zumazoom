@@ -3,6 +3,7 @@ Zuma-Zoom Features
 - Blog
     - Tags on Blog Posts
     ✓ Remove clock app
+    - set up github repo
     - add links app from florenceandbrock
     - Add external link field to photo model
     - Span multiple sites from one back-end (Sites)
