@@ -67,6 +67,7 @@ INSTALLED_APPS = (
 
     'django_extensions',
     'django_evolution',
+    'tagging',
 
     'attachments',
     'blog',
