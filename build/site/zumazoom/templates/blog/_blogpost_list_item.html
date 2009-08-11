@@ -4,7 +4,7 @@
     <h2 class="title">{{ blogpost.title }}</h2>
     <p class="date">{{ blogpost.pub_date|date:"M" }}<b>{{ blogpost.pub_date|date:"j" }}</b></p>
     <div class="entry">
-        {{ blogpost.md_body|markdown:"pygments,attachments(t=blog/_blogpost_attachment.html)" }}
+        {{ blogpost.md_body|markdown:"attachments(t=blog/_blogpost_attachment.html)" }}
     </div>
     <div class="meta">
         <p class="links"><a href="#" class="more">flickr link</a></p>
