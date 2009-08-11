@@ -66,7 +66,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'django_extensions',
-    'django_evolution',
     'south',
     'tagging',
 
