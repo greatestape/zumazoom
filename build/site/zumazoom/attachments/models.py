@@ -27,7 +27,9 @@ def _get_attachment_file_path(attachment, filename):
 
 class Attachment(models.Model):
     """A file attached to another object"""
-    attached_file = models.FileField(_('attached_file'), null=True, blank=True, upload_to=_get_attachment_file_path)
+    attached_file = models.FileField(_('File'), null=True, blank=True, upload_to=_get_attachment_file_path)
+    url = models.URLField(_('URL'), blank=True, null=True, verify_exists=True)
+    title = models.CharField(_('Title'), blank=True, max_length=255)
     content_type = models.ForeignKey(ContentType, blank=True, null=True)
     object_id = models.PositiveIntegerField(blank=True, null=True)
     target_object = generic.GenericForeignKey("content_type", "object_id")
