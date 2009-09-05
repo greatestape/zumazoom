@@ -18,6 +18,10 @@ urlpatterns = patterns('',
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)', admin.site.root),
+    
+    url(r'^colophon/$', 'django.views.generic.simple.direct_to_template', {
+        'template': 'flatpages/colophon.html',
+    }, name='colophon'),
 
     url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
         {'feed_dict': feeds}, name='feeds'),
