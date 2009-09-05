@@ -257,14 +257,16 @@ input, textarea, select {
 }
 
 .post .meta .more {
-    width: 185px;
-    height: 35px;
+    width: 56px;
+    height: 12px;
     padding: 5px 10px;
     background: #8BCB2F;
     border: 1px dashed #FFFFFF;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 9px;
+    float: right;
+    display: inline;
 }
 
 .post .meta .comments {
