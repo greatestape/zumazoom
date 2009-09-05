@@ -1,7 +1,7 @@
 {% load markup %}
 
 <div class="post">
-    <h2 class="title">{{ blogpost.title }}</h2>
+    <h2 class="title"><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a></h2>
     <p class="date">{{ blogpost.pub_date|date:"M" }}<b>{{ blogpost.pub_date|date:"j" }}</b></p>
     <div class="entry">
         {{ blogpost.md_body|markdown:"attachments(t=blog/_blogpost_attachment-image.html)" }}

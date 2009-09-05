@@ -201,6 +201,15 @@ input, textarea, select {
     color: #0094E0;
 }
 
+.post .title a {
+    color: #8BCB2F;
+    text-decoration: none;
+}
+
+.post .title a:hover {
+    color: #666;
+}
+
 .post .date p {
     margin: 0;
     padding: 0;
