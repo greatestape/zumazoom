@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'django_extensions',
+    'sorl.thumbnail',
     'south',
     'tagging',
 
