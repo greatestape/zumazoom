@@ -8,7 +8,7 @@ class LatestPosts(Feed):
     title = "zumazoom.com posts"
     subtitle = "The latest posts to zumazoom.com."
     link = "/"
-    author_name = 'Sam Bull'
+    author_name = 'Dael Stewart'
 
     title_template = 'blog/_blogpost_title.html'
     description_template = 'blog/_blogpost_body.html'
@@ -39,7 +39,7 @@ class LatestPostsInCategory(LatestPosts):
             raise FeedDoesNotExist
         return obj.get_absolute_url()
 
-    author_name = 'Sam Bull'
+    author_name = 'Dael Stewart'
 
     def items(self, obj):
         return obj.blogpost_set.public_posts().order_by('-pub_date')[:5]
