@@ -5,8 +5,8 @@ from django.utils.feedgenerator import Atom1Feed
 from blog.models import BlogPost, Category
 
 class LatestPosts(Feed):
-    title = "pocketuniverse.ca blog posts"
-    subtitle = "The latest posts to pocketuniverse.ca."
+    title = "zumazoom.com posts"
+    subtitle = "The latest posts to zumazoom.com."
     link = "/"
     author_name = 'Sam Bull'
 
@@ -29,10 +29,10 @@ class LatestPostsInCategory(LatestPosts):
         return Category.objects.get(slug__exact=bits[0])
 
     def title(self, obj):
-        return 'pocketuniverse.ca %s blog posts' % obj.name
+        return 'zumazoom.com %s posts' % obj.name
 
     def subtitle(self, obj):
-        return 'The latest %s blog posts to pocketuniverse.ca' % obj.name
+        return 'The latest %s posts to zumazoom.com' % obj.name
 
     def link(self, obj):
         if not obj:
