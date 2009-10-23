@@ -35,6 +35,7 @@ def live_test():
 def live():
     "Deployment target: zumazoom.com"
     config.fab_hosts = ['zumazoom.com']
+    config.fab_user = 'zumazoomteam'
     config.target_dir = '/home/zumazoomteam/live/'
     config.target = 'prod'
     config.restart_apache = True
