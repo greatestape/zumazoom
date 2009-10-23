@@ -9,6 +9,7 @@ SECRET_KEY = '*obiqcq259mi^urkrej-ltp5v23p54lrs$j+n)qq&+52hqq6q!'
 ADMINS = (
     ('Dael Stewart', 'sookaa@gmail.com'),
     ('Sam Bull', 'osirius@gmail.com'),
+    ('Taylan Pince', 'taylanpince@gmail.com'),
 )
 
 MANAGERS = ADMINS
