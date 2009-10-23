@@ -1,1 +1,10 @@
-<img src="{{ attachment.attached_file.url }}" />
+{% load thumbnail %}
+
+<img src="{% thumbnail attachment.attached_file 570x600 %}" alt="" />
+
+{% if attachment.url or attachment.title %}
+<div class="meta">
+    {% if attachment.url %}<a href="{{ attachment.url }}" class="more">flickr link</a>{% endif %}
+    {% if attachment.title %}<p>Title: {{ attachment.title }}</p>{% endif %}
+</div>
+{% endif %}
